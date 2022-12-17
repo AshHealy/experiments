@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maze App</title>
+  <style type="text/css">
+  #square{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+  }
+  #wall {
+    position: absolute;
+    width: 500px;
+    height: 10px;
+    background-color: black;
+  }
+  </style>
+</head>
+<body>
+  <div id="square"></div>
+  <div id="wall"></div>
+  <script>
+  var square = document.getElementById('square');
+  var wall = document.getElementById('wall');
+
+  document.onkeydown = checkKey;
+
+  function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '38' || e.keyCode == '87') { //up arrow or w
+      if (square.offsetTop > 0) {
+        square.style.top = (square.offsetTop - 10) + 'px';
+      }
+      else {
+        alert("You hit a wall!");
+      }
+    } else if (e.keyCode == '40' || e.keyCode == '83') { //down arrow or s
+      if (square.offsetTop < (wall.offsetTop - 50)) {
+        square.style.top = (square.offsetTop + 10) + 'px';
+      }
+      else {
+        alert("You hit a wall!");
+      }
+    } else if (e.keyCode == '37' || e.keyCode == '65') { //left arrow or a
+      if (square.offsetLeft > 0) {
+        square.style.left = (square.offsetLeft - 10) + 'px';
+      }
+      else {
+        alert("You hit a wall!");
+      }
+    } else if (e.keyCode == '39' || e.keyCode == '68') { //right arrow or d
+      if (square.offsetLeft < (wall.offsetLeft - 50)) {
+        square.style.left = (square.offsetLeft + 10) + 'px';
+      }
+      else {
+        alert("You hit a wall!");
+      }
+    }
+  };
+  </script>
+</body>
+</html>

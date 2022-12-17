@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Move a Square</title>
+  <style type="text/css">
+  #square{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+  }
+  </style>
+</head>
+<body>
+  <div id="square"></div>
+  <script>
+  var square = document.getElementById('square');
+
+  document.onkeydown = checkKey;
+
+  function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '38' || e.keyCode == '87') { //up arrow or w
+      square.style.top = (square.offsetTop - 20) + 'px';
+    } else if (e.keyCode == '40' || e.keyCode == '83') { //down arrow or s
+      square.style.top = (square.offsetTop + 20) + 'px';
+    } else if (e.keyCode == '37' || e.keyCode == '65') { //left arrow or a
+      square.style.left = (square.offsetLeft - 20) + 'px';
+    } else if (e.keyCode == '39' || e.keyCode == '68') { //right arrow or d
+      square.style.left = (square.offsetLeft + 20) + 'px';
+    }
+  };
+  </script>
+</body>
+</html>

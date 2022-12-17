@@ -1,0 +1,67 @@
+public class PokemonRegion {
+
+// Properties
+private String name;
+private String description;
+private ArrayList<Pokemon> pokemon;
+
+// Constructor
+public PokemonRegion(String name, String description) {
+    this.name = name;
+    this.description = description;
+    this.pokemon = new ArrayList<>();
+}
+
+// Getters and Setters
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+
+public String getDescription() {
+    return description;
+}
+
+public void setDescription(String description) {
+    this.description = description;
+}
+
+public ArrayList<Pokemon> getPokemon() {
+    return pokemon;
+}
+
+public void setPokemon(ArrayList<Pokemon> pokemon) {
+    this.pokemon = pokemon;
+}
+
+// Methods
+public void addPokemon(Pokemon pokemon) {
+    this.pokemon.add(pokemon);
+}
+
+public void removePokemon(Pokemon pokemon) {
+    this.pokemon.remove(pokemon);
+}
+
+public int countPokemon() {
+    return pokemon.size();
+}
+
+public ArrayList<String> getPokemonNames() {
+    ArrayList<String> pokemonNames = new ArrayList<>();
+    for (Pokemon pokemon : this.pokemon) {
+        pokemonNames.add(pokemon.getName());
+    }
+    return pokemonNames;
+}
+
+public void printPokemonNames() {
+    for (int i = 0; i < this.pokemon.size(); i++) {
+        System.out.println(this.pokemon.get(i).getName());
+    }
+}
+
+}

@@ -1,0 +1,98 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RPG Game</title>
+  <style type="text/css">
+  #square{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+  }
+  #circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+  }
+  </style>
+</head>
+<body>
+  <div id="square"></div>
+  <div id="circle"></div>
+  <script>
+  var square = document.getElementById('square');
+  var circle = document.getElementById('circle');
+  var health = 100;
+  var strength = 10;
+  var enemyHealth = 100;
+  var enemyStrength = 10;
+
+  alert("Welcome to the universe of shapes! You are a blue square and your mission is to become the strongest shape in the universe. First, you must defeat the red circle!");
+
+  document.onkeydown = checkKey;
+
+  function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '38' || e.keyCode == '87') { //up arrow or w
+      if (square.offsetTop > 0) {
+        square.style.top = (square.offsetTop - 10) + 'px';
+      }
+      else {
+        alert("You hit a wall!");
+      }
+    } else if (e.keyCode == '40' || e.keyCode == '83') { //down arrow or s
+      if (square.offsetTop < (circle.offsetTop - 50)) {
+        square.style.top = (square.offsetTop + 10) + 'px';
+      }
+      else {
+        alert("You hit a wall!");
+      }
+    } else if (e.keyCode == '37' || e.keyCode == '65') { //left arrow or a
+      if (square.offsetLeft > 0) {
+        square.style.left = (square.offsetLeft - 10) + 'px';
+      }
+      else {
+        alert("You hit a wall!");
+      }
+    } else if (e.keyCode == '39' || e.keyCode == '68') { //right arrow or d
+      if (square.offsetLeft < (circle.offsetLeft - 50)) {
+        square.style.left = (square.offsetLeft + 10) + 'px';
+      }
+      else {
+        alert("You hit a wall!");
+      }
+    } else if (e.keyCode == '32') { //spacebar
+      if (square.offsetLeft == (circle.offsetLeft - 50) && square.offsetTop == (circle.offsetTop - 50)) {
+        alert("You've encountered the red circle! Prepare to battle!");
+        battle();
+      }
+    }
+  };
+
+  function battle() {
+    alert("You have " + health + " health and " + strength + " strength. The red circle has " + enemyHealth + " health and " + enemyStrength + " strength. Press enter to attack!");
+    document.onkeydown = attack;
+    function attack(e) {
+      e = e || window.event;
+      if (e.keyCode == '13') { //enter
+        enemyHealth -= strength;
+        health -= enemyStrength;
+        alert("You attacked the red circle and did " + strength + " damage! The red circle attacked you and did " + enemyStrength + " damage!");
+        if (health <= 0) {
+          alert("You have died! Game over!");
+        } else if (enemyHealth <= 0) {
+          alert("You have defeated the red circle! You have gained strength and now have " + (strength + 5) + " strength!");
+          strength += 5;
+          alert("You have emerged victorious! Continue your journey to become the strongest shape in the universe!");
+        } else {
+          battle();
+        }
+      }
+    }
+  };
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .roundedEdgeBtn {
+        background-color: green;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: white;
+      }
+    </style>
+    <script>
+      function playVideo() {
+        var video = document.getElementById("myVideo");
+        video.src= "https://www.youtube.com/watch?v=5RoH3KkvmMY";
+        video.play();
+      }
+    </script>
+  </head>
+  <body>
+    <button class="roundedEdgeBtn" onclick="playVideo()">Play Video</button>
+    <iframe width="560" height="315" id="myVideo" style="display:none;" src=""></iframe>
+  </body>
+</html>
