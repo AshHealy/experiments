@@ -58,3 +58,24 @@ _Italic_
 ## Inline Code
 
 `<div> This is a div </div>`
+
+## Table
+
+| Column 1 | Column 2 | Column 3 |
+| :------- | -------: | :------: |
+| Value 1  | Value 2  | Value 3  |
+| Value 4  | Value 5  | Value 6  |
+
+## Emphasis
+
+*Italic* or _Italic_
+**Bold** or __Bold__
+***Bold-Italic*** or ___Bold-Italic___
+
+## Footnotes
+
+This is some text with a footnote.[^1]
+
+...
+
+[^1]: This is the text of the footnote.
