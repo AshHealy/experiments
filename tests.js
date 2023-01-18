@@ -55,3 +55,38 @@
 //     return longest;
 //   }
 //   console.log(findLongestWord("The quick brown fox jumps over the lazy dog"));
+
+
+function isPalindrome(str) {
+    return str === str.split('').reverse().join('');
+}
+console.log(isPalindrome("racecar")); // true
+console.log(isPalindrome("hello")); // false
+
+//_________________________________________________
+
+function removeVowels(str) {
+    return str.replace(/[aeiou]/gi, '');
+}
+console.log(removeVowels("hello world")); // "hll wrld"
+//_________________________________________________
+function countCharacter(str, char) {
+    return str.split('').filter(c => c === char).length;
+}
+console.log(countCharacter("hello", 'l')); // 2
+console.log(countCharacter("world", 'o')); // 1
+//_________________________________________________
+function isAnagram(str1, str2) {
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+    return str1.split('').sort().join('') === str2.split('').sort().join('');
+}
+console.log(isAnagram("listen", "silent")); // true
+console.log(isAnagram("hello", "world")); // false
+//_________________________________________________
+function capitalizeWords(str) {
+    return str.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+}
+console.log(capitalizeWords("hello world")); // "Hello World"
+console.log(capitalizeWords("HELLO WORLD")); // "Hello World"
+//_________________________________________________
