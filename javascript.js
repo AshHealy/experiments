@@ -1,4 +1,4 @@
-// write a javascript app that demos data types and functions
+
 
 // data types
 let boolean = true; 
