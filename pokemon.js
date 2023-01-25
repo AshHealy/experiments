@@ -1,4 +1,3 @@
-// write a javascript class that represents the attributes of a pokemon
 
 class Pokemon {
   constructor(name, type, hp, attack, defense, moves = [], species = '') {
